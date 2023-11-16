@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi blog personal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../Images/Fondo_1.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2em;
+            padding: 0px;
+            color: white;
+            background-color: black;
+            display: inline-block;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 35px;
+            bottom: 90%;
+        }
+
+        .image-container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container1 img {
+            height: 300px;
+            width: 650px;
+            position: absolute;
+            left: 560px;
+            bottom: -90px;
+        }
+
+        .image-container1 img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container1 img.loaded {
+            opacity: 1;
+        }
+
+        .image-container1 img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container1 figcaption {
+            position: absolute;
+            bottom: -150px;
+            left: 595px;
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            text-align: justify;
+            transition: opacity 2s;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 9px;
+            width: 560px;
+        }
+
+        .image-container2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container2 img {
+            height: 300px;
+            width: 650px;
+            position: absolute;
+            left: 560px;
+            bottom: -315px;
+        }
+
+        .image-container2 img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container2 img.loaded {
+            opacity: 1;
+        }
+
+        .image-container2 img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container2 figcaption {
+            position: absolute;
+            bottom: -390px;
+            left: 605px;
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            transition: opacity 2s;
+            text-align: justify;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 9px;
+            width: 560px;
+        }
+
+        .image-container3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container3 img {
+            height: 300px;
+            width: 650px;
+            position: absolute;
+            left: 560px;
+            bottom: -495px;
+        }
+
+        .image-container3 img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container3 img.loaded {
+            opacity: 1;
+        }
+
+        .image-container3 img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container3 figcaption {
+            position: absolute;
+            bottom: -573px;
+            left: 605px;
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            transition: opacity 2s;
+            text-align: justify;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 9px;
+            width: 560px;
+        }
+
+        .image-container4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container4 img {
+            height: 300px;
+            width: 650px;
+            position: absolute;
+            left: 560px;
+            bottom: -745px;
+        }
+
+        .image-container4 img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container4 img.loaded {
+            opacity: 1;
+        }
+
+        .image-container4 img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container4 figcaption {
+            position: absolute;
+            bottom: -822px;
+            left: 605px;
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            transition: opacity 2s;
+            text-align: justify;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 9px;
+            width: 560px;
+        }
+
+        .center {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: auto;
+            flex-direction: column;
+            padding: 2em;
+            position: relative;
+        }
+
+        .button1 {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            border-radius: 6px;
+            transition: background-color 0s ease;
+            position: fixed;
+            top: 95%;
+            right: 20px;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s;
+        }
+
+        .button1:hover {
+            background-color: darkblue;
+        }
+
+        .button2 {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            border-radius: 6px;
+            transition: background-color 0s ease;
+            position: fixed;
+            top: 95%;
+            left: 20px;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s;
+        }
+
+        .button2:hover {
+            background-color: darkblue;
+        }
+
+        .titulo {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 25px;
+            border: 1px solid white;
+            padding: 9px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            left: 5%;
+            top: -25px;
+        }
+
+        .texto {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            top: 25px;
+            left: 5%;
+        }
+
+        .titulo2 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 25px;
+            border: 1px solid white;
+            padding: 9px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            left: 5%;
+            top: 800px;
+            z-index: auto;
+        }
+
+        .texto2 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            top: 850px;
+            left: 5%;
+            z-index: auto;
+        }
+
+        .titulo3 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 25px;
+            border: 1px solid white;
+            padding: 9px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            left: 5%;
+            top: 1625px;
+        }
+
+        .texto3 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            top: 1675px;
+            left: 5%;
+        }
+
+        .titulo4 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 25px;
+            border: 1px solid white;
+            padding: 9px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            left: 5%;
+            top: 2475px;
+        }
+
+        .texto4 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            text-align: justify;
+            max-width: 80%;
+            max-height: 50vh;
+            overflow-y: auto;
+            position: absolute;
+            top: 2525px;
+            left: 5%;
+        }
+    </style>
+    <script>
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach((img) => {
+                if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0 && getComputedStyle(img).display !== 'none') {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', lazyLoadImages);
+        window.addEventListener('scroll', lazyLoadImages);
+        window.addEventListener('resize', lazyLoadImages);
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var button = document.querySelector('.button');
+            if (window.scrollY > 100) {
+                button.classList.add('show');
+            } else {
+                button.classList.remove('show');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Fundamentos del docente en beneficio del aprendizaje y enseñanza de las personas adolescentes
+        </h1>
+    </header>
+
+    <div class="center">
+        <div class="titulo">
+            Evolución del rol del docente: Una transformación necesaria en la educación contemporánea
+        </div>
+        <div class="texto">
+            Históricamente, los docentes han jugado un papel fundamental a la hora de facilitar el aprendizaje y la
+            transferencia de conocimientos en el aula. Sin embargo, la realidad actual exige una transformación de la
+            función educativa. Grandes cambios están en el horizonte. Los docentes ya no son solamente facilitadores,
+            están asumiendo el papel de facilitadores y avanzando hacia modelos de aprendizaje colaborativo más
+            significativos.
+            <br><br>
+            En este sentido, transformación significa repensar las dinámicas tradicionales del aula; ya que, la sociedad
+            actual exige una educación que no únicamente proporcione información, sino que también fomente la
+            participación y la construcción colectiva de conocimientos. Además, los profesores se convertirán en
+            defensores de un aprendizaje más interactivo y la colaboración entre los estudiantes se convertirá en un
+            pilar clave, en palabras de Cabrera Cuadros y Soto García (2020): “La responsabilidad del propio aprendizaje
+            y vivirlo con otra persona, permite ir creando juntos, además de favorecer el reconocimiento del
+            autoaprendizaje” (p.280).
+            <br><br>
+            Este cambio se reconoce no solo como una respuesta a las demandas de la sociedad actual, sino también como
+            un reconocimiento de las capacidades y potencialidades de los estudiantes. Ciertamente, un enfoque más
+            participativo y colaborativo no solamente empodera a los estudiantes, sino que también abre nuevas
+            perspectivas para el desarrollo de habilidades importantes y la aplicación práctica del conocimiento.
+            <br><br>
+            En resumen, la evolución del papel del docente de facilitador a facilitador refleja una respuesta pragmática
+            a las necesidades cambiantes de la sociedad. Por consiguiente, este cambio no solamente redefinirá el papel
+            de los docentes, sino que también sentará las bases para un enfoque educativo más dinámico y centrado en los
+            estudiantes, los cuales ayudarán a enfrentar eficazmente los desafíos de un mundo en constante cambio.
+
+        </div>
+
+        <div class="image-container1">
+            <img data-src="../Images/Imagen_1.jpg" alt="Imagen de portada del blog">
+            <figcaption>
+                El rol del docente infantil. (2017, Septiembre 10). Recuperado de
+                <a
+                    href="https://www.compartirpalabramaestra.org/sites/default/files/el-rol-del-docente-infantil.jpg">https://www.compartirpalabramaestra.org/sites/default/files/el-rol-del-docente-infantil.jpg</a>
+            </figcaption>
+        </div>
+
+        <div class="titulo2">
+            Adaptabilidad y formación integral
+        </div>
+        <div class="texto2">
+            En el mundo educativo actual, la adaptación y la formación integral del profesorado son esenciales ante el
+            cambio continuo. Ciertamente, el avance tecnológico es un aspecto inevitable de la sociedad actual; ya que,
+            no únicamente se actualizan constantemente, sino que también es fácil integrar estas herramientas
+            directamente en su educación. Por lo tanto, la capacidad de adaptarse a estos cambios es importante para el
+            trabajo social docente.
+            <br><br>
+            En este caso, la formación integral es fundamental; por el hecho de que, los docentes de hoy hacen más que
+            simplemente enseñar conocimientos. Tal como lo desarrollo Ceballos (2018): ”La función del docente va más
+            allá del contexto pedagógico, pues trasciende la vida de los alumnos y obra en el espacio afectivo y social
+            en el que se mueven” (p.42).
+            <br><br>
+            En este sentido, tiene la responsabilidad de desempeñar un papel considerable y
+            tienen el poder de moldear valores y actitudes; debido a que, la educación es vista no únicamente como un
+            medio para obtener información, sino también como una herramienta para el desarrollo integral de los
+            estudiantes. Ciertamente, la capacidad de los docentes para transmitir no solamente conceptos académicos,
+            sino también principios morales y sociales ha demostrado ser una contribución relevante a la integración y
+            el desarrollo social.
+            En este plan de estudios, los maestros hacen más que simplemente enseñar y fomentar el crecimiento de los
+            estudiantes. Ellos tienen la responsabilidad, de que; el aprendizaje inclusivo se aplique; ya que, implica
+            participación y requiere que los docentes se concentren en modelar comportamientos y valores que ocurren
+            dentro del aula y dentro de los límites del aula.
+            <br><br>
+            En otras palabras, adaptarse a una educación y formación integral es un desafío clave en el entorno
+            educativo actual; debido a que, la capacidad de adaptarse a las necesidades técnicas y el deseo de
+            transmitir el verdadero propósito a los estudiantes forman la base del complejo e importante trabajo social
+            de los nuevos docentes.
+
+        </div>
+
+        <div class="image-container2">
+            <img data-src="../Images/R.gif" alt="Imagen de portada del blog">
+            <figcaption>
+                Arroyo, Y. (2015, Marzo 9). Identidad Iberoamericana. Recuperado de
+                <a
+                    href="http://2.bp.blogspot.com/-i_zEk7eNlJw/UblcMFMKypI/AAAAAAAAAC4/3AURsl5pRDU/s1600/FI2.gif">http://2.bp.blogspot.com/-i_zEk7eNlJw/UblcMFMKypI/AAAAAAAAAC4/3AURsl5pRDU/s1600/FI2.gif</a>
+            </figcaption>
+        </div>
+
+        <div class="titulo3">
+            Integración de la Tecnología en la Enseñanza
+        </div>
+        <div class="texto3">
+            En la sociedad digital actual, la integración efectiva del conocimiento y la tecnología están estrechamente
+            vinculadas; debido a que, esta tendencia no solamente refleja cambios en las herramientas educativas, sino
+            que también redefine el papel de los docentes como líderes en el desarrollo de las habilidades digitales de
+            los estudiantes.
+            <br><br>
+            La transición de un docente tradicional a un líder digital requiere no sólo comprender las herramientas
+            digitales, sino también poder enseñar usándolas. Ciertamente, seleccionar los recursos digitales es una
+            tarea importante para los docentes, evaluando no solo la relevancia del contenido, sino también su capacidad
+            para estimular el pensamiento crítico y la participación en los estudiantes; ya que, de acuerdo con
+            Almerich, Suarez, Orellana y Díaz (2010, citado por García Contador, Y., & Gutiérrez Esteban, G, 2020): “El
+            profesorado debe adquirir los conocimientos y habilidades necesarias para poder utilizar las tecnologías
+            como un recurso dentro del proceso de enseñanza- aprendizaje” (p.6).
+            <br><br>
+            La capacidad de tomar decisiones en una variedad de situaciones en línea es una habilidad fundamental; ya
+            que, los profesores no sólo imparten conocimientos, sino que también actúan como guías para evaluar la
+            calidad y confiabilidad de las fuentes de información. Además, se teoriza que estas relevantes habilidades
+            se extienden más allá del aula y permiten a los estudiantes navegar eficazmente en entornos digitales ricos
+            en información.
+            <br><br>
+            En otras palabras, la integración tecnológica es más que una simple herramienta de implementación; ya que,
+            esto significa que el papel del conocimiento está cambiando hacia una dirección crítica y analítica.
+            Ciertamente, la capacidad de seleccionar, evaluar y utilizar recursos digitales se considera una competencia
+            clave para desarrollar las habilidades digitales de los estudiantes y promover el pensamiento crítico.
+
+        </div>
+
+        <div class="image-container3">
+            <img data-src="../Images/Imagen_3.jpg" alt="Imagen de portada del blog">
+            <figcaption>
+                Mfl, L. (2022, Agosto 22). La tecnología es muy importante en la educación. Recuperado de
+                <a
+                    href="https://www.juliovas.net/wp-content/uploads/2019/09/cropped-tecnolog%C3%ADa-de-la-informaci%C3%B3n.jpg">https://www.juliovas.net/wp-content/uploads/2019/09/cropped-tecnolog%C3%ADa-de-la-informaci%C3%B3n.jpg</a>
+            </figcaption>
+        </div>
+
+        <div class="titulo4">
+            Hipótesis sobre la Educación en contexto digital en Costa Rica
+        </div>
+        <div class="texto4">
+            En el contexto costarricense, es importante desarrollar procesos educativos para adaptarlos a las
+            necesidades de una sociedad digital. El cambio de facilitador a facilitador colaborativo, descrito en el
+            primer análisis, representa una respuesta directa a las necesidades educativas cambiantes y, en este
+            sentido, la redefinición del papel de la educación tiene menos que ver con la expansión del conocimiento y
+            más con el diálogo. Ciertamente, esta es una propuesta para el aprendizaje cooperativo, el cual se desempeña
+            en el apoyo íntegro del educando y el educado.
+            <br><br>
+            Según el segundo análisis, la adaptación educativa y la formación integral son temas fundamentales en la
+            educación actual en Costa Rica; ya que, la capacidad de los profesores para integrar la tecnología en el
+            plan de estudios es un requisito clave. Además, la educación no es sólo un medio para impartir información,
+            sino también un medio para desarrollar a los estudiantes en su conjunto, por lo que se requiere una amplia
+            gama de conocimientos flexibles.
+            <br><br>
+            Tal y como se desarrolla en el tercer análisis, la comunidad digital costarricense debería considerar como
+            su principal objetivo la integración efectiva de la tecnología y la educación; ya que, la transición de
+            profesores tradicionales a líderes digitales requiere no sólo conocimientos técnicos, sino también la
+            capacidad de inculcar en los estudiantes la capacidad de evaluar críticamente la información digital. Con la
+            finalidad de desarrollar la capacidad de seleccionar, evaluar y utilizar recursos digitales; porque, es
+            esencial para desarrollar las habilidades digitales de los estudiantes y promover el pensamiento crítico.
+            <br><br>
+            En resumen, este estudio muestra que desarrollar el papel del conocimiento en la cogestión, la adaptación
+            integradora y la integración efectiva de la tecnología en los entornos educativos de Costa Rica conducirá a
+            un desarrollo inclusivo para abordar los desafíos de una sociedad digital, contribuyendo al desarrollo
+            integral de los estudiantes y promoviendo un pensamiento crítico en un entorno en constante cambio.
+
+        </div>
+
+        <div class="image-container4">
+            <img data-src="../Images/Imagen_4.jpg" alt="Imagen de portada del blog">
+            <figcaption>
+                Rodríguez, A. (2021, Junio 29). Costa Rica desaprovecha modelo de educación dual. Recuperado de
+                <a
+                    href="https://th.bing.com/th/id/OIP.layn8gSsNqYC2OclJq0ZLgHaE8?pid=ImgDet&w=600&h=400&rs=1">https://th.bing.com/th/id/OIP.layn8gSsNqYC2OclJq0ZLgHaE8?pid=ImgDet&w=600&h=400&rs=1</a>
+            </figcaption>
+        </div>
+
+        <p><a class="button1" href="index.html">Volver a la página anterior</a></p>
+        <p><a class="button2" href="Pagina6.html">Conclusiones</a></p>
+        </d>
+</body>
+
+</html>

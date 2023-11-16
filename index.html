@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Psicología</title>
+    <style>
+        /* Estilos CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../Images/Fondo_1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 1em;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2em;
+            padding: 0;
+            background-color: black;
+            display: inline-block;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 30px;
+            bottom: 90%;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        .image-container img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container img.loaded {
+            opacity: 1;
+        }
+
+        .image-container img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container figcaption {
+            position: absolute;
+            bottom: 500px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            transition: opacity 1.5s;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+        }
+
+        .link {
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 4px 8px;
+            border-radius: 1px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .link-left {
+            margin-left: -1.5em;
+        }
+
+        .link-center {
+            margin-bottom: 1.5%;
+        }
+
+        .link-right {
+            margin-right: 0.5em;
+        }
+
+        .link-right-info {
+            margin-bottom: 1.5%;
+            position: absolute;
+            right: 0px;
+            top: -200%;
+            transform: translateY(-50%);
+            transform: translateX(-275%);
+        }
+
+        .link-left-info {
+            margin-bottom: 1.5%;
+            position: absolute;
+            right: 0px;
+            top: -200%;
+            transform: translateY(-50%);
+            transform: translateX(-713%);
+        }
+
+        .link:hover {
+            background-color: darkblue;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 1em;
+        }
+    </style>
+    <script>
+        // Carga perezosa de imágenes
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach((img) => {
+                if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0 && getComputedStyle(img).display !== 'none') {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', lazyLoadImages);
+        window.addEventListener('scroll', lazyLoadImages);
+        window.addEventListener('resize', lazyLoadImages);
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Fundamentos del docente en beneficio del aprendizaje y enseñanza de las personas adolescentes
+        </h1>
+    </header>
+    <div class="image-container">
+        <img data-src="../Images/Portada_1.jpg" alt="Imagen de portada del blog">
+        <figcaption>
+            Fundación EDE. (2019, Febrero). Generando aprendizajes. Recuperado de
+            <a
+                href="https://edefundazioa.org/wp-content/uploads/2019/02/59898.jpg">https://edefundazioa.org/wp-content/uploads/2019/02/59898.jpg</a>
+        </figcaption>
+    </div>
+    <nav class="navigation">
+        <a class="link link-left" href="Pagina1.html">Desarrollo del blog</a>
+        <a class="link link-center" href="Pagina3.html">Comentarios</a>
+        <a class="link link-right" href="Pagina2.html">Bibliografía del blog</a>
+        <a class="link link-right link-right-info" href="Pagina4.html">Información del autor</a>
+        <a class="link link-left link-left-info" href="Pagina5.html">Introducción del tema</a>
+    </nav>
+    <footer class="footer">
+        <p>© 2023. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

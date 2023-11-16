@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del autor</title>
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../Images/Fondo_1.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .image-container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container1 img {
+            height: 300px;
+            width: 650px;
+            position: absolute;
+            left: -310px;
+            bottom: -21%;
+        }
+
+        .image-container1 img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container1 img.loaded {
+            opacity: 1;
+        }
+
+        .image-container1 img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container1 figcaption {
+            position: absolute;
+            bottom: -188px;
+            left: -275px;
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            text-align: justify;
+            transition: opacity 2s;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 9px;
+            width: 560px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            border-radius: 6px;
+            transition: background-color 0s ease;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkblue;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2em;
+            padding: 0;
+            background-color: black;
+            display: inline-block;
+            font-family: "Times New Roman", Times, serif;
+            text-align: justify;
+            font-size: 35px;
+            position: absolute;
+            bottom: 85%;
+        }
+
+        .texto {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            text-align: justify;
+            max-width: 50%;
+            max-height: 80%;
+            overflow-y: auto;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+        }
+    </style>
+    </style>
+    <script>
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach((img) => {
+                if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0 && getComputedStyle(img).display !== 'none') {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', lazyLoadImages);
+        window.addEventListener('scroll', lazyLoadImages);
+        window.addEventListener('resize', lazyLoadImages);
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var button = document.querySelector('.button');
+            if (window.scrollY > 100) {
+                button.classList.add('show');
+            } else {
+                button.classList.remove('show');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="title">
+        Introducción
+    </div>
+    <div class="texto">
+        En el mundo digital, la forma en que aprendemos basándose en el desarrollo humano ha cambiado
+        significativamente; Ciertamente, el importante papel de un profesor no es solamente impartir conocimientos; ya
+        que, se convierte en un gestor de aprendizaje y debe adaptarse a los continuos desarrollos tecnológicos; Por
+        otro lado, la naturaleza dual de los docentes como educadores, y su rol social en la educación inclusiva, es
+        fundamental para el beneficio intrínseco los estudiantes; por el hecho de que, toda práctica influida por las
+        comunidades digitales influye en las prácticas educativas.
+        <br><br>
+        En primer lugar, consideremos cómo los profesores pueden ser eficaces no únicamente como embajadores, sino
+        también como estudiantes. Los entornos de aprendizaje conectados, el aprendizaje colaborativo entre profesores y
+        estudiantes se ha vuelto más dinámico; esto enfocándose en el desarrollo de habilidades no solo académicas,
+        sino, también en el desarrollo integral de docente como un “ser” de carácter interactivo en el entorno
+        educativo.
+        <br><br>
+        El segundo tema trata del estado actual de la educación y enfatiza su capacidad para adaptarse e innovar en un
+        mundo que cambia rápidamente. Además, analizamos el trabajo social de los docentes y cómo este trabajo se
+        extiende más allá del aula e influye en la formación de valores y actitudes hacia el desarrollo de los
+        estudiantes.
+        <br><br>
+        Finalmente, discutiremos cómo la sociedad digital ha cambiado el entorno educativo, y su combinación entre
+        tecnología y educación se considera no solo una herramienta, sino también esencial para desarrollar las
+        habilidades digitales de los estudiantes y prepararlos para los desafíos de una sociedad digital; en la cual, el
+        desarrollo de habilidades tecnológicas se está volviendo una necesidad más ocurrente.
+    </div>
+    <div class="image-container1">
+        <img data-src="../Images/Imagen_1.jpg" alt="Imagen de portada del blog">
+        <figcaption>
+            El rol del docente infantil. (2017, Septiembre 10). Recuperado de
+            <a
+                href="https://www.compartirpalabramaestra.org/sites/default/files/el-rol-del-docente-infantil.jpg">https://www.compartirpalabramaestra.org/sites/default/files/el-rol-del-docente-infantil.jpg</a>
+        </figcaption>
+    </div>
+    <p><a class="button" href="index.html">Volver a la página anterior</a></p>
+</body>
+
+</html>

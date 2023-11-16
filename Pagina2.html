@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi blog personal</title>
+    <style>
+        /* Estilos del encabezado */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../Images/Fondo_1.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: white;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2em;
+            padding: 0px;
+            color: white;
+            background-color: black;
+            display: inline-block;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 35px;
+            bottom: 90%;
+        }
+
+        .center {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 150vh;
+            flex-direction: column;
+            padding: 3em;
+            border: 1px solid white;
+            max-width: 100%;
+            max-height: 50%;
+            overflow-y: auto;
+            text-align: justify;
+            position: absolute;
+            left: 0px;
+            top: auto;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: justify;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            border-radius: 6px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .button:hover {
+            background-color: darkblue;
+        }
+    </style>
+    <script>
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach((img) => {
+                if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0 && getComputedStyle(img).display !== 'none') {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', lazyLoadImages);
+        window.addEventListener('scroll', lazyLoadImages);
+        window.addEventListener('resize', lazyLoadImages);
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Fuentes bibliograficas</h1>
+    </header>
+
+    <!-- Cuerpo del blog -->
+    <div class="center">
+        <p style="position: relative; top: -50px;">
+            <br>
+            Rodríguez, A. (2021, Junio 29). Costa Rica desaprovecha modelo de educación dual. Recuperado de
+            <a
+                href="https://th.bing.com/th/id/OIP.layn8gSsNqYC2OclJq0ZLgHaE8?pid=ImgDet&w=600&h=400&rs=1">https://th.bing.com/th/id/OIP.layn8gSsNqYC2OclJq0ZLgHaE8?pid=ImgDet&w=600&h=400&rs=1</a>
+            <br><br>
+            Mfl, L. (2022, Agosto 22). La tecnología es muy importante en la educación. Recuperado de
+            <a
+                href="https://www.juliovas.net/wp-content/uploads/2019/09/cropped-tecnolog%C3%ADa-de-la-informaci%C3%B3n.jpg">https://www.juliovas.net/wp-content/uploads/2019/09/cropped-tecnolog%C3%ADa-de-la-informaci%C3%B3n.jpg</a>
+            <br><br>
+            Arroyo, Y. (2015, Marzo 9). Identidad Iberoamericana. Recuperado de
+            <a
+                href="http://2.bp.blogspot.com/-i_zEk7eNlJw/UblcMFMKypI/AAAAAAAAAC4/3AURsl5pRDU/s1600/FI2.gif">http://2.bp.blogspot.com/-i_zEk7eNlJw/UblcMFMKypI/AAAAAAAAAC4/3AURsl5pRDU/s1600/FI2.gif</a>
+            <br><br>
+            El rol del docente infantil. (2017, Septiembre 10). Recuperado de
+            <a
+                href="https://www.compartirpalabramaestra.org/sites/default/files/el-rol-del-docente-infantil.jpg">https://www.compartirpalabramaestra.org/sites/default/files/el-rol-del-docente-infantil.jpg</a>
+            <br><br>
+            García Contador, Y., & Gutiérrez Esteban, G. (2020). El rol docente en la sociedad digital. Dialnet, 38, 6.
+            Recuperado de <a
+                href="https://dialnet.unirioja.es/servlet/articulo?codigo=7935576">https://dialnet.unirioja.es/servlet/articulo?codigo=7935576</a>
+            <br><br>
+            Ceballos, H. (2018). El rol del docente en la actualidad y su función social. Revista De Investigación Y
+            Evaluación Educativa, 5(2), 38–50. <a
+                href="https://doi.org/10.47554/revie2018.5.34">https://doi.org/10.47554/revie2018.5.34</a>
+            <br><br>
+            Cabrera Cuadros, V., & Soto García, C. (2020). ¿Cómo aprendemos? El docente enseñante y aprendiz que
+            acompaña a los estudiantes en su exploración hacia el autoaprendizaje. Profesorado, Revista De Currículum Y
+            Formación Del Profesorado, 24(3), 269–290. <a
+                href="https://doi.org/10.30827/profesorado.v24i3.8155">https://doi.org/10.30827/profesorado.v24i3.8155</a>
+            <br><br>
+            Arte de Estrellas en el cielo 4k Ultra HD Fondo de pantalla. (2021, Enero 14). Recuperado de
+            <a
+                href="https://www.xtrafondos.com/wallpaper/3840x2400/7939-arte-de-estrellas-en-el-cielo.html">https://www.xtrafondos.com/wallpaper/3840x2400/7939-arte-de-estrellas-en-el-cielo.html</a>
+            <br><br>
+            Fundación EDE. (2019, Febrero). Generando aprendizajes. Recuperado de
+            <a
+                href="https://edefundazioa.org/wp-content/uploads/2019/02/59898.jpg">https://edefundazioa.org/wp-content/uploads/2019/02/59898.jpg</a>
+            <br>
+        </p>
+
+        <p><a class="button" href="index.html">Volver a la página anterior</a></p>
+    </div>
+</body>
+
+</html>

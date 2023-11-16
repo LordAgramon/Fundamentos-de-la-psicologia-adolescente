@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del autor</title>
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../Images/Fondo_1.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .image-container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            position: relative;
+        }
+
+        .image-container1 img {
+            height: 350px;
+            width: 620px;
+            position: absolute;
+            left: -310px;
+            bottom: -21%;
+        }
+
+        .image-container1 img[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-container1 img.loaded {
+            opacity: 1;
+        }
+
+        .image-container1 img:hover+figcaption {
+            opacity: 1;
+        }
+
+        .image-container1 figcaption {
+            position: absolute;
+            bottom: -188px;
+            left: -290px;
+            color: #000;
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            text-align: justify;
+            transition: opacity 2s;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 9px;
+            width: 560px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            border-radius: 6px;
+            transition: background-color 0s ease;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s;
+        }
+
+        .button:hover {
+            background-color: darkblue;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2em;
+            padding: 0;
+            background-color: black;
+            display: inline-block;
+            font-family: "Times New Roman", Times, serif;
+            text-align: justify;
+            font-size: 35px;
+            position: absolute;
+            bottom: 85%;
+        }
+
+        .texto {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            text-align: justify;
+            max-width: 50%;
+            max-height: 80%;
+            overflow-y: auto;
+            position: absolute;
+            top: 34%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+        }
+    </style>
+    </style>
+    <script>
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach((img) => {
+                if (img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0 && getComputedStyle(img).display !== 'none') {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-src');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', lazyLoadImages);
+        window.addEventListener('scroll', lazyLoadImages);
+        window.addEventListener('resize', lazyLoadImages);
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            var button = document.querySelector('.button');
+            if (window.scrollY > 100) {
+                button.classList.add('show');
+            } else {
+                button.classList.remove('show');
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="title">
+        Conclusiones
+    </div>
+    <div class="texto">
+        Después de analizar en profundidad el papel de los docentes en la enseñanza y el aprendizaje de los jóvenes en
+        la sociedad digital actual, he llegado a algunas conclusiones básicas.
+        <br>
+        <br>
+        En primer lugar, la evolución del papel del docente de facilitador a facilitador colaborativo refleja una
+        respuesta pragmática a las necesidades cambiantes de la sociedad. Ciertamente, este cambio no sólo redefine el
+        papel de loseducadores, sino que también sienta las bases para un enfoque educativo más dinámico y centrado en
+        el estudiante, con la finalidad deque pueda responder eficazmente a los desafíos de un mundo en constante
+        cambio.
+        <br>
+        <br>
+        En segundo lugar, la adaptabilidad docente y la formación integral son esenciales en el entorno educativo
+        actual; ya que, la capacidad de adaptarse a las nuevas tecnologías y formar valores y actitudes más allá de los
+        límites
+        de la educación contribuye en gran medida al desarrollo general del estudiante.
+        <br>
+        <br>
+        Finalmente, en la sociedad digital actual, es importante incorporar efectivamente la tecnología a la educación.
+        Los docentes no sólo deben
+        comprender las herramientas digitales, sino también enseñarles a utilizarlas de manera crítica y analítica. Esto
+        no sólo fomenta el desarrollo de las habilidades digitales de los estudiantes, sino que también promueve el
+        pensamiento crítico en un entorno rico en información.
+        <br><br>
+        En otras palabras, el papel de los docentes en la sociedad digital actual es mucho más que simplemente que
+        impartir
+        conocimientos. Ciertamente, esperamos que sean facilitadores colaborativos, agentes de cambio holístico y
+        líderes digitales
+        que guíen a los estudiantes a pensar de manera crítica y adaptativa en un mundo en constante evolución.
+    </div>
+    <div class="image-container1">
+        <img data-src="../Images/Portada_1.jpg" alt="Imagen de portada del blog">
+        <figcaption>
+            Fundación EDE. (2019, Febrero). Generando aprendizajes. Recuperado de
+            <a
+                href="https://edefundazioa.org/wp-content/uploads/2019/02/59898.jpg">https://edefundazioa.org/wp-content/uploads/2019/02/59898.jpg</a>
+        </figcaption>
+    </div>
+    <p><a class="button" href="Pagina1.html">Volver a la página anterior</a></p>
+</body>
+
+</html>
